@@ -46,7 +46,7 @@ class Detail extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            SizedBox(height: 120.0),
+                            SizedBox(height: 80.0),
                             Container(
                               width: 90.0,
                               child: new Divider(color: Colors.green),
@@ -54,7 +54,7 @@ class Detail extends StatelessWidget {
                             SizedBox(height: 10.0),
                             Text(
                               movie.title,
-                              style: TextStyle(color: Colors.white, fontSize: 45.0),
+                              style: TextStyle(color: Colors.white, fontSize: 40.0),
                             ),
                             Text(
                               movie.dateDateReleasedDate(),
@@ -88,8 +88,9 @@ class Detail extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           movie.overview,
-                          style: TextStyle(fontSize: 14.0),
+                          style: TextStyle(fontSize: 16.0),
                         ),
+                        SizedBox(height: 20.0),
                         Text(
                           "Genres",
                           style: TextStyle(fontSize: 18.0),
@@ -98,10 +99,9 @@ class Detail extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: movie.genres.length,
                           itemBuilder: (BuildContext context, int index){
-                            print(movie.genres[index].name);
-                            Text(
+                            return Text(
                               movie.genres[index].name,
-                              style: TextStyle(fontSize: 12.0),
+                              style: TextStyle(fontSize: 14.0),
                             );
                           }
                         ) 

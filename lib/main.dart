@@ -61,8 +61,8 @@ class _State extends State<MyApp> {
                           new ListTile(
                             leading: Image.network(
                               'https://image.tmdb.org/t/p/w500/${movie[index].posterPath}',
-                              height: 40.0,
-                              width: 20.0
+                              height: 60.0,
+                              width: 30.0
                             ),
                             title: Text('${movie[index].title}'),
                             subtitle: Text('${movie[index].dateDateReleasedDate()}'),
