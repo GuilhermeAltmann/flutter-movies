@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 class Movie {
 
   int id;
@@ -15,5 +16,10 @@ class Movie {
       posterPath: json['poster_path'],
       releasedDate: json['release_date'],
     );
+  }
+
+  String dateDateReleasedDate(){
+
+    return new DateFormat("dd/MM/yyyy").format(DateTime.parse(this.releasedDate));
   }
 }

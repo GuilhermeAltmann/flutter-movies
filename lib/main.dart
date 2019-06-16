@@ -42,6 +42,7 @@ class _State extends State<MyApp> {
               return new ListView.builder(
                 itemCount: movie.length,
                 itemBuilder: (BuildContext context, int index){
+
                   return new Card(
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
@@ -53,7 +54,7 @@ class _State extends State<MyApp> {
                             width: 20.0
                           ),
                           title: Text('${movie[index].title}'),
-                          subtitle: Text('${movie[index].releasedDate}'),
+                          subtitle: Text('${movie[index].dateDateReleasedDate()}'),
                         ),
                         
                       //  new Text('${movie[index].title}'),
