@@ -37,7 +37,7 @@ class _State extends State<MyApp> {
           title: Text('Movies'),
         ),
         body: FutureBuilder(
-        future: fetchMovie(),
+        future: fetchMovies(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
 
@@ -54,7 +54,6 @@ class _State extends State<MyApp> {
                           context,
                           MaterialPageRoute(builder: (context) => Detail(movie: movie[index])),
                         );
-                        print("tapped ${movie[index].title}");
                       },
                       child: new Column(
                         mainAxisSize: MainAxisSize.min,

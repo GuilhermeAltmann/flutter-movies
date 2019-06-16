@@ -4,7 +4,7 @@ import 'package:movies_app/models/movie.dart';
 
 String apiKey = 'c5850ed73901b8d268d0898a8a9d8bff';
 
-Future<List<Movie>> fetchMovie() async {
+Future<List<Movie>> fetchMovies() async {
 
   List<Movie> movies = new List<Movie>();
 
@@ -39,3 +39,28 @@ Future<List<Movie>> fetchMovie() async {
     throw Exception('Failed to load post');
   }
 }
+
+Future<Movie> fetchMovie(int idMovie) async{
+
+  Movie movie;
+  final response =
+    await http.get('https://api.themoviedb.org/3/movie/$idMovie?api_key=$apiKey');
+
+    if (response.statusCode == 200) {
+
+        movie = Movie.fromJson(json.decode(response.body));
+
+        Map<String, dynamic> myMap = json.decode(response.body);
+        List<dynamic> genres = myMap["genres"];
+
+        genres.forEach((genre) {
+          movie.addGenre(genre);
+        });
+
+        return movie;
+    }else {
+    // If that response was not OK, throw an error.
+    throw Exception('Failed to load post');
+  }
+}
+
